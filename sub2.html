@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바스버거</title>
+    <style>
+        @font-face {
+            font-family: 'Aggravo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: 300;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Aggravo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Aggravo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff');
+            font-weight: 100;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff');
+            font-weight: 200;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+            font-weight: 300;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+            font-weight: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+            font-weight: 600;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff');
+            font-weight: 800;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff');
+            font-weight: 900;
+            font-display: swap;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        header h1 {
+            font-family: 'aggravo';
+            text-align: center;
+            padding: 20px;
+            color: #2E5A44;
+        }
+
+        .text {
+            font-family: 'Escoredream';
+            text-align: center;
+            padding: 20px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px 20px;
+        }
+
+        .line1,
+        .line2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 25%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            background-color: #F0F5F1;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+
+        .card h3 {
+            font-family: 'Escoredream';
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            바스버거
+        </h1>
+    </header>
+    <main>
+        <div class="text">
+            <p>"최고의 재료로 만드는 프리미엄 수제버거, 바스버거입니다.<br>
+                매일 직접 만드는 신선한 패티와 폭신한 번, 그리고 바스버거만의 특별한 '무제한 감자칩'을 함께 즐겨보세요. 가장 맛있는 버거를 향한 우리의 고집이 담겨있습니다."</p>
+        </div>
+        <div class="menu">
+            <div class="line1">
+                <div class="card">
+                    <img src="바스버거세트.jpg" alt="바스버거 세트">
+                    <h3>바스버거 세트</h3>
+                    <p>11,700</p>
+                </div>
+
+                <div class="card">
+                    <img src="스리라차 치즈버거 세트.jpg" 스리라차 치즈버거 세트">
+                    <h3>스리라차 치즈버거 세트</h3>
+                    <p>10,800</p>
+                </div>
+
+                <div class="card">
+                    <img src="더블베이컨치즈버거 세트.jpg" alt="더블베이컨치즈버거 세트">
+                    <h3>더블베이컨치즈버거 세트</h3>
+                    <p>16,200</p>
+                </div>
+            </div>
+
+            <div class="line2">
+                <div class="card">
+                    <img src="머쉬룸버거 세트.jpg" alt="머쉬룸버거 세트">
+                    <h3>머쉬룸버거 세트</h3>
+                    <p>16,200</p>
+                </div>
+
+                <div class="card">
+                    <img src="와사비마요 쉬림프버거 세트.jpg" alt="와사비마요 쉬림프버거 세트">
+                    <h3>와사비마요 쉬림프버거 세트</h3>
+                    <p>14,800</p>
+                </div>
+
+                <div class="card">
+                    <img src="탐욕버거 세트.jpg" alt="탐욕버거 세트">
+                    <h3>탐욕버거 세트</h3>
+                    <p>17,900</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer></footer>
+
+</body>
+
+</html>
