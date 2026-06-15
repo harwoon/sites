@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맛집 추천</title>
+    <style>
+        @font-face {
+            font-family: 'KerisKedyuche';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-3@1.0/KERISKEDU_R.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'KerisKedyuche';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-3@1.0/KERISKEDU_B.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff');
+            font-weight: 100;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff');
+            font-weight: 200;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+            font-weight: 300;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+            font-weight: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+            font-weight: 600;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff');
+            font-weight: 800;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Escoredream';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff');
+            font-weight: 900;
+            font-display: swap;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .web {
+            margin: 10px;
+            padding: 20px;
+            background-color: #FAFAFA;
+            font-family: sans-serif;
+
+            display: grid;
+
+            grid-template-rows: 1fr 4fr 0.5fr;
+            grid-template-columns: 1fr 8fr;
+            grid-template-areas:
+                "header header"
+                "nav main"
+                "footer footer";
+
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .header {
+            grid-area: header;
+
+        }
+
+        .header h2 {
+            font-family: 'KerisKedyuche';
+            font-size: 60px;
+            text-align: center;
+            color: #2E5A44;
+
+        }
+
+        .nav {
+            grid-area: nav;
+            padding: 20px;
+        }
+
+        .nav ul {
+            font-family: 'Escoredream';
+            font-size: 20px;
+            list-style: none;
+            /*리스트 앞 표시 제거*/
+            padding: 0;
+            margin: 10px;
+        }
+
+        .nav li {
+            background-color: #EAF2ED;
+            border-radius: 6px;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .nav li:hover {
+            color: #4A6B53;
+        }
+
+
+        .main {
+            grid-area: main;
+
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            /*섹션 1:1*/
+        }
+
+        h3 {
+            font-family: 'Escoredream';
+        }
+
+        a {
+            font-size: 25px;
+            padding: 10px;
+        }
+
+        .sec1,
+        .sec2 {
+            overflow: hidden;
+            /*섹션 밖으로 넘치면 숨김*/
+        }
+
+        .sec1:hover,
+        .sec2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            background-color: #F0F5F1;
+        }
+
+        .card {
+            display: flex;
+            /*가로 세로 정렬 섞여 있어 flex 사용*/
+            gap: 15px;
+            align-items: center;
+            max-width: 650px;
+        }
+
+        .card img {
+            /*자식 선택자*/
+            width: 35%;
+            max-width: 250px;
+            /*최대 너비*/
+            object-fit: cover;
+            /*비율 깨지지 않도록 채우고 넘치는건 자름*/
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+        .content {
+            font-family: 'Escoredream';
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .footer {
+            grid-area: footer;
+            font-family: 'KerisKedyuche';
+        }
+
+        .footer h4 {
+            margin: 20px;
+        }
+
+        .header,
+        .nav,
+        .sec1,
+        .sec2,
+        .footer {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 5px;
+            padding: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="web">
+        <header class="header">
+            <h2>오늘 뭐 먹을까?</h2>
+        </header>
+
+        <nav class="nav">
+            <ul>
+                <li>일식</li>
+                <li>중식</li>
+                <li>한식</li>
+                <li>양식</li>
+                <li>카페</li>
+            </ul>
+        </nav>
+        <main class="main">
+            <section class="sec1">
+                <h3>이번 달 추천 맛집</h3>
+                <div class="card">
+                    <img src="연어소바.png" alt="연어 소바">
+                    <div class="content">
+                        <a href="sub1.html">백소정</a>
+                        <h3>여름을 맞아 나온 연어 신메뉴 2종 출시!</h3>
+                        <p>
+                            여름 필수 코스! 시원한 육수에 부드러운 연어를 곁들인 신메뉴 연어소바를 만나보세요.
+                        </p>
+                    </div>
+                </div>
+
+
+            </section>
+            <section class="sec2">
+                <h3>인기 맛집</h3>
+                <div class="card">
+                    <img src="버거.jfif" alt="버거">
+                    <div class="content">
+                        <a href="sub2.html">바스 버거</a>
+                        <h3>무제한 감자칩이 제공되는 수제버거 맛집</h3>
+                        <p>
+                            육즙 가득한 수제 패티와 폭신한 번, 매장에서 바로 튀겨내는 무제한 감자칩을 즐겨보세요.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer class="footer">
+            <h4>haewoon</h4>
+        </footer>
+    </div>
+
+</body>
+
+</html>
